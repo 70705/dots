@@ -1,0 +1,62 @@
+#!/bin/sh
+
+#LAUNCHERS
+$HOME/.config/bspwm/autostart.sh
+
+#BSPWM configuration
+#bspc config border_radius       8 
+bspc config border_width 0
+bspc config window_gap 6
+bspc config top_padding 2
+bspc config bottom_padding 42
+bspc config left_padding 2
+bspc config right_padding 2
+bspc config single_monocle       false
+#bspc config click_to_focus       true
+bspc config split_ratio          0.50
+bspc config borderless_monocle   true
+bspc config gapless_monocle      true
+#bspc config focus_by_distance    true
+bspc config focus_follows_pointer true
+#bspc config history_aware_focus  true
+bspc config pointer_modifier mod4
+bspc config pointer_action1 move
+bspc config pointer_action2 resize_side
+bspc config pointer_action3 resize_corner
+bspc config remove_disabled_monitors true
+bspc config merge_overlapping_monitors true
+
+#BSPWM coloring
+# bspc config normal_border_color "#000000"
+# bspc config focused_border_color "#000000"
+#Single monitor
+bspc monitor -d 'UTILS' 'WEB' 'CODING' 'GAMES' 'MISC'
+
+#Fullscreen applications
+#bspc rule -a inkscape state=fullscreen
+#bspc rule -a Spotify state=fullscreen
+
+#Floating applications
+#bspc rule -a Arandr state=floating
+#bspc rule -a Archlinux-tweak-tool.py state=floating
+
+#Tiled applications
+#bspc rule -a Gnome-disks state=tiled
+#bspc rule -a Xfce4-settings-manager state=tiled
+
+# Rules for apps
+bspc rule -a firefox desktop='WEB' follow=off
+bspc rule -a discord desktop='UTILS' follow=off
+bspc rule -a steam desktop='UTILS' follow=off
+bspc rule -a Spotify desktop='MISC' follow=off
+bspc rule -a Code desktop='CODING' follow=off
+
+
+mygames=$(ls /media/gamedisk1/SteamLibrary/steamapps | grep appmanifest | sed 's/[^0-9]*//g')
+mygames2=$(ls /media/gamedisk2/SteamLibrary/steamapps | grep appmanifest | sed 's/[^0-9]*//g')
+
+# this sed command removes everything but the digits
+
+for game in $mygames or $mygames2; do
+        bspc rule -a steam_app_$game desktop='GAMES' state=fullscreen follow=off
+done
