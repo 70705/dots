@@ -46,6 +46,12 @@ nohup easyeffects --gapplication-service &' | sudo tee -a ~/.xprofile
 
 xdg-mime default org.kde.dolphin.desktop inode/directory
 
+git clone --depth=1 https://github.com/70705/linux-backup.git && cd linux-backup
+
+mv alacritty/ $HOME/.config/
+mv bspwm/ $HOME/.config/
+mv paru/ $HOME/.config/
+
 if [[ $SHELL != "/usr/bin/zsh" ]]; then
   echo "Changing shell to zsh, your root pass is needed."
   chsh -s /usr/bin/zsh
