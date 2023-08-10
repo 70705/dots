@@ -9,7 +9,7 @@ echo -e '[chaotic-aur]
 Include = /etc/pacman.d/chaotic-mirrorlist' | sudo tee -a /etc/pacman.conf
 
 
-sudo pacman -Syy xorg-setxkbmap lsd ttf-jetbrains-mono ttf-jetbrains-mono-nerd ttf-terminus-nerd ttf-inconsolata ttf-joypixels papirus-icon-theme rofi dunst polybar xorg-xprop xorg-xkill physlock picom bspwm sxhkd xdg-user-dirs zsh-autosuggestions zsh-history-substring-search zsh-syntax-highlighting xorg-xsetroot xorg-xwininfo xorg-xrandr polkit-gnome adwaita-cursors lxappearance pulsemixer libinput qalculate-gtk breeze-icons qt5ct xdg-desktop-portal-kde spotify alacritty gwenview p7zip dolphin p7zip-gui sddm zip downgrade htop pinta ntfs-3g catppuccin-gtk-theme-frappe kvantum-theme-catppuccin-git btrfs-progs cpupower yuzu-early-access grub efibootmgr firefox ttf-liberation ttf-dejavu noto-fonts noto-fonts-emoji noto-fonts-cjk inetutils nvidia-dkms networkmanager discord mangohud lib32-mangohud mpv easyeffects steam qbittorrent calf kdeconnect zsh linux-tkg-bmq linux-tkg-bmq-headers nvidia-settings lib32-nvidia-utils nvidia-utils lutris visual-studio-code-bin trackma-git git kvantum bottles ffmpegthumbs freedownloadmanager gamemode lib32-gamemode heroic-games-launcher-git thunderbird xdg-user-dirs xdg-desktop-portal paru pipewire pipewire-pulse wireplumber
+sudo pacman -Syy gvfs ffmpegthumbnailer tumbler thunar xorg-setxkbmap lsd ttf-jetbrains-mono ttf-jetbrains-mono-nerd ttf-terminus-nerd ttf-inconsolata ttf-joypixels papirus-icon-theme rofi dunst polybar xorg-xprop xorg-xkill physlock picom bspwm sxhkd xdg-user-dirs zsh-autosuggestions zsh-history-substring-search zsh-syntax-highlighting xorg-xsetroot xorg-xwininfo xorg-xrandr polkit-gnome adwaita-cursors lxappearance pulsemixer libinput qalculate-gtk breeze-icons qt5ct xdg-desktop-portal-kde spotify alacritty gwenview p7zip p7zip-gui sddm zip downgrade htop pinta ntfs-3g catppuccin-gtk-theme-frappe kvantum-theme-catppuccin-git btrfs-progs cpupower yuzu-early-access grub efibootmgr firefox ttf-liberation ttf-dejavu noto-fonts noto-fonts-emoji noto-fonts-cjk inetutils nvidia-dkms networkmanager discord mangohud lib32-mangohud mpv easyeffects steam qbittorrent calf kdeconnect zsh linux-tkg-bmq linux-tkg-bmq-headers nvidia-settings lib32-nvidia-utils nvidia-utils lutris visual-studio-code-bin trackma-git git kvantum bottles freedownloadmanager gamemode lib32-gamemode heroic-games-launcher-git thunderbird xdg-user-dirs xdg-desktop-portal paru pipewire pipewire-pulse wireplumber
 paru -S alass --noconfirm
 
 
@@ -38,19 +38,34 @@ echo -e 'Section "InputClass"
 	Option "AccelProfile" "flat"
 	Option "AccelSpeed" "0"
 EndSection' | sudo tee -a /etc/X11/xorg.conf.d/50-mouse-acceleration.conf
-
+echo -e 'TerminalEmulator=alacritty' | sudo tee -a ~/.config/xfce4/helpers.rc
+echo -e '[Thumbnailer Entry]
+TryExec=ffmpeg
+Exec=ffmpeg -y -i %i %o -fs %s
+MimeType=audio/mpeg' | sudo tee -a /usr/share/thumbnailers/audiocovers.thumbnailer
 
 echo -e 'setxkbmap -model abnt2 -layout br
 feh --no-fehbg --bg-fill ~/.wallpaper/wallpaper.jpg
-nohup easyeffects --gapplication-service &' | sudo tee -a ~/.xprofile
+nohup easyeffects --gapplication-service &
+kdeconnect-indicator &' | sudo tee -a ~/.xprofile
 
-xdg-mime default org.kde.dolphin.desktop inode/directory
+xdg-mime default thunar.desktop inode/directory
 
 git clone --depth=1 https://github.com/70705/linux-backup.git && cd linux-backup
 
 mv alacritty/ $HOME/.config/
 mv bspwm/ $HOME/.config/
 mv paru/ $HOME/.config/
+mv gtk-2.0/ $HOME/.config/
+mv gtk-3.0/ $HOME/.config/
+mv Thunar/ $HOME/.config/
+mv Kvantum/ $HOME/.config/
+
+sudo mkdir /usr/share/Kvantum/
+sudo mv KvArcTokyoNight/ /usr/share/Kvantum/
+
+
+
 
 if [[ $SHELL != "/usr/bin/zsh" ]]; then
   echo "Changing shell to zsh, your root pass is needed."
