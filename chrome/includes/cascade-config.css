@@ -126,8 +126,8 @@
   /*  Allow tabs to have dynamic widths based on
    *  the Tab Bars maximum width
    */
-  --uc-active-tab-width: clamp(100px, 30vw, 300px);
-  --uc-inactive-tab-width: clamp(100px, 20vw, 200px);
+  --uc-active-tab-width: clamp(100px, 30vw, 180px);
+  --uc-inactive-tab-width: clamp(100px, 20vw, 150px);
 
   /*  Enable this to always show the Tab Close button
    *  possible values:
@@ -141,7 +141,7 @@
    *  show: -moz-inline-block
    *  hide: none
    */
-  --show-tab-close-button-hover: none;
+  --show-tab-close-button-hover: -moz-inline-block;
 
   /*  Hide the all Tabs button from the Tab Bar
    *  possible values:
