@@ -18,7 +18,6 @@ sudo systemctl enable sddm.service
 sudo systemctl enable polkit
 sudo mkdir /etc/sddm.conf.d
 
-
 echo -e '[Autologin]
 User=victor
 Session=bspwm' | sudo tee -a /etc/sddm.conf.d/autologin.conf
@@ -62,11 +61,7 @@ mv gtk-3.0/ $HOME/.config/
 mv Thunar/ $HOME/.config/
 mv Kvantum/ $HOME/.config/
 
-sudo mkdir /usr/share/Kvantum/
-sudo mv KvArcTokyoNight/ /usr/share/Kvantum/
-
-
-
+sudo mkdir /usr/share/Kvantum/ && sudo mv KvArcTokyoNight/ /usr/share/Kvantum/
 
 if [[ $SHELL != "/usr/bin/zsh" ]]; then
   echo "Changing shell to zsh, your root pass is needed."
