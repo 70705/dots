@@ -52,6 +52,8 @@ bspc rule -a Spotify desktop='MISC' follow=off
 bspc rule -a Code desktop='CODING' follow=off
 
 
+bspc rule -a mixer state=floating focus=on rectangle=600x250+1310+780
+
 mygames=$(ls /media/gamedisk1/SteamLibrary/steamapps | grep appmanifest | sed 's/[^0-9]*//g')
 mygames2=$(ls /media/gamedisk2/SteamLibrary/steamapps | grep appmanifest | sed 's/[^0-9]*//g')
 
