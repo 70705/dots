@@ -55,7 +55,7 @@ kdeconnect-indicator &' | sudo tee -a ~/.xprofile
 
 xdg-mime default thunar.desktop inode/directory
 
-git clone --depth=1 https://github.com/70705/arch-dotfiles.git && cd linux-backup
+git clone --depth=1 https://github.com/70705/dots.git && cd linux-backup
 
 mv alacritty/ $HOME/.config/
 mv bspwm/ $HOME/.config/
