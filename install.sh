@@ -14,7 +14,7 @@ sudo pacman -Syy xdg-desktop-portal-xapp gvfs ffmpegthumbnailer tumbler thunar x
 
 mv paru/ $HOME/.config/
 paru -S alass --noconfirm
-paru -S eww-x11
+paru -S eww-x11 unified-remote-serverw --noconfirm
 
 sudo systemctl enable sddm.service
 sudo systemctl enable polkit
@@ -51,7 +51,7 @@ MimeType=audio/mpeg' | sudo tee -a /usr/share/thumbnailers/audiocovers.thumbnail
 echo -e 'setxkbmap -model abnt2 -layout br
 feh --no-fehbg --bg-fill ~/.wallpaper/wallpaper.jpg
 nohup easyeffects --gapplication-service &
-kdeconnect-indicator &' | sudo tee -a ~/.xprofile
+/opt/urserver/urserver --daemon &' | sudo tee -a ~/.xprofile
 
 xdg-mime default thunar.desktop inode/directory
 
