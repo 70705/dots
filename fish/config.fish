@@ -7,6 +7,10 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 
 
 alias mixer='pulsemixer'
-alias cls="clear"
+alias cls='clear'
 alias ls='lsd -a --group-directories-first'
 alias ll='lsd -la --group-directories-first'
+alias cat='bat'
+
+
+zoxide init fish | source
