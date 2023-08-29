@@ -23,7 +23,7 @@ echo -e '[Autologin]
 User=victor
 Session=bspwm
 [General]
-NumLock=on' | sudo tee -a /etc/sddm.conf.d/autologin.conf
+Numlock=on' | sudo tee -a /etc/sddm.conf.d/autologin.conf
 echo -e '2048' | sudo tee -a /proc/sys/dev/hpet/max-user-freq
 echo -e '2048' | sudo tee -a /sys/class/rtc/rtc0/max_user_freq
 echo -e 'BROWSER=firefox
