@@ -67,6 +67,7 @@ mv gtk-4.0/ $HOME/.config/
 mv Thunar/ $HOME/.config/
 mv Kvantum/ $HOME/.config/
 sudo mv tokyo-night-sddm-main/ /usr/share/sddm/themes/
+sudo mv tokyo-night-grub/ /boot/grub/themes/
 mv .zshrc $HOME/
 
 sudo mkdir /usr/share/Kvantum/ && sudo mv KvArcTokyoNight/ /usr/share/Kvantum/
