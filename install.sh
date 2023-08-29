@@ -10,11 +10,10 @@ echo -e '[chaotic-aur]
 Include = /etc/pacman.d/chaotic-mirrorlist' | sudo tee -a /etc/pacman.conf
 
 
-sudo pacman -Syy xdg-desktop-portal-xapp gvfs ffmpegthumbnailer tumbler thunar xorg-setxkbmap lsd ttf-jetbrains-mono ttf-jetbrains-mono-nerd ttf-terminus-nerd ttf-inconsolata ttf-joypixels papirus-icon-theme rofi dunst polybar xorg-xprop xorg-xkill physlock picom bspwm sxhkd xdg-user-dirs zsh-autosuggestions zsh-history-substring-search zsh-syntax-highlighting xorg-xsetroot xorg-xwininfo xorg-xrandr polkit-gnome adwaita-cursors lxappearance pulsemixer libinput qalculate-gtk breeze-icons qt5ct xdg-desktop-portal-kde spotify alacritty p7zip p7zip-gui sddm zip downgrade htop pinta ntfs-3g btrfs-progs cpupower yuzu-early-access grub efibootmgr firefox ttf-liberation ttf-dejavu noto-fonts noto-fonts-emoji noto-fonts-cjk inetutils nvidia-dkms connman discord mangohud lib32-mangohud mpv easyeffects steam qbittorrent calf zsh linux-tkg-bmq linux-tkg-bmq-headers nvidia-settings lib32-nvidia-utils nvidia-utils visual-studio-code-bin trackma-git git kvantum bottles freedownloadmanager gamemode lib32-gamemode heroic-games-launcher-git thunderbird xdg-user-dirs xdg-desktop-portal paru pipewire pipewire-pulse wireplumber
+sudo pacman -Syy xdg-desktop-portal-xapp gvfs ffmpegthumbnailer tumbler thunar xorg-setxkbmap lsd ttf-jetbrains-mono ttf-jetbrains-mono-nerd ttf-terminus-nerd ttf-inconsolata ttf-joypixels papirus-icon-theme rofi dunst polybar xorg-xprop xorg-xkill physlock picom bspwm sxhkd xdg-user-dirs zsh-autosuggestions zsh-history-substring-search zsh-syntax-highlighting xorg-xsetroot xorg-xwininfo xorg-xrandr polkit-gnome adwaita-cursors lxappearance pulsemixer libinput qalculate-gtk breeze-icons qt5ct spotify alacritty p7zip p7zip-gui sddm zip downgrade htop pinta ntfs-3g btrfs-progs cpupower yuzu-early-access grub efibootmgr firefox ttf-liberation ttf-dejavu noto-fonts noto-fonts-emoji noto-fonts-cjk inetutils nvidia-dkms connman discord mangohud lib32-mangohud mpv easyeffects steam qbittorrent calf zsh linux-headers nvidia-settings lib32-nvidia-utils nvidia-utils visual-studio-code-bin trackma-git git kvantum bottles gamemode lib32-gamemode heroic-games-launcher-git thunderbird xdg-user-dirs xdg-desktop-portal paru pipewire pipewire-pulse wireplumber
 
 mv paru/ $HOME/.config/
-paru -S alass --noconfirm
-paru -S eww-x11 unified-remote-serverw --noconfirm
+paru -S alass unified-remote-server --noconfirm
 
 sudo systemctl enable sddm.service
 sudo systemctl enable polkit
