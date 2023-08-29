@@ -60,8 +60,10 @@ mv alacritty/ $HOME/.config/
 mv bspwm/ $HOME/.config/
 mv gtk-2.0/ $HOME/.config/
 mv gtk-3.0/ $HOME/.config/
+mv gtk-4.0/ $HOME/.config/
 mv Thunar/ $HOME/.config/
 mv Kvantum/ $HOME/.config/
+mv .zshrc $HOME
 
 sudo mkdir /usr/share/Kvantum/ && sudo mv KvArcTokyoNight/ /usr/share/Kvantum/
 
