@@ -9,8 +9,7 @@ sudo pacman -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.ta
 echo -e '[chaotic-aur]
 Include = /etc/pacman.d/chaotic-mirrorlist' | sudo tee -a /etc/pacman.conf
 
-
-sudo pacman -Syy keepassxc rclone github-cli vinegar lazygit npm neovim fd zoxide bat qt5-quickcontrols2 qt5-graphicaleffects qt5-svg xdg-desktop-portal-xapp gvfs ffmpegthumbnailer tumbler thunar xorg-setxkbmap lsd ttf-jetbrains-mono ttf-jetbrains-mono-nerd ttf-terminus-nerd ttf-inconsolata ttf-joypixels papirus-icon-theme rofi dunst polybar xorg-xprop xorg-xkill physlock picom bspwm sxhkd xdg-user-dirs xorg-xsetroot xorg-xwininfo xorg-xrandr polkit-gnome adwaita-cursors lxappearance pulsemixer libinput qalculate-gtk breeze-icons qt5ct spotify alacritty p7zip p7zip-gui sddm zip downgrade htop pinta ntfs-3g btrfs-progs cpupower yuzu-early-access grub efibootmgr firefox ttf-liberation ttf-dejavu noto-fonts noto-fonts-emoji noto-fonts-cjk inetutils nvidia-dkms r8168-dkms discord mangohud lib32-mangohud mpv steam qbittorrent calf linux-headers nvidia-settings lib32-nvidia-utils nvidia-utils trackma-git git github-cli tachidesk tachidesk-sorayomi-bin kvantum gamemode lib32-gamemode heroic-games-launcher-git thunderbird xdg-user-dirs xdg-desktop-portal paru pipewire pipewire-pulse wireplumber
+sudo pacman -Syu keepassxc rclone github-cli vinegar lazygit npm neovim fd zoxide bat qt5-quickcontrols2 qt5-graphicaleffects qt5-svg xdg-desktop-portal-xapp gvfs ffmpegthumbnailer tumbler thunar xorg-setxkbmap lsd ttf-jetbrains-mono ttf-jetbrains-mono-nerd ttf-terminus-nerd ttf-inconsolata ttf-joypixels papirus-icon-theme rofi dunst polybar xorg-xprop xorg-xkill physlock picom bspwm sxhkd xdg-user-dirs xorg-xsetroot xorg-xwininfo xorg-xrandr polkit-gnome adwaita-cursors lxappearance pulsemixer libinput qalculate-gtk breeze-icons qt5ct spotify alacritty p7zip p7zip-gui sddm zip downgrade htop pinta ntfs-3g btrfs-progs cpupower yuzu-early-access grub efibootmgr firefox ttf-liberation ttf-dejavu noto-fonts noto-fonts-emoji noto-fonts-cjk inetutils nvidia-dkms r8168-dkms discord mangohud lib32-mangohud mpv steam qbittorrent calf linux-headers nvidia-settings lib32-nvidia-utils nvidia-utils trackma-git git github-cli tachidesk tachidesk-sorayomi-bin kvantum gamemode lib32-gamemode heroic-games-launcher-git thunderbird xdg-user-dirs xdg-desktop-portal paru pipewire pipewire-pulse wireplumber
 
 mv paru/ $HOME/.config/
 paru -S alass unified-remote-server sddm-theme-tokyo-night --noconfirm
@@ -24,10 +23,9 @@ User=victor
 Session=bspwm
 [General]
 Numlock=on' | sudo tee -a /etc/sddm.conf.d/autologin.conf
-echo -e '2048' | sudo tee -a /proc/sys/dev/hpet/max-user-freq
-echo -e '2048' | sudo tee -a /sys/class/rtc/rtc0/max_user_freq
+
 echo -e 'BROWSER=firefox
-EDITOR=nano
+EDITOR=nvim
 __GL_SHADER_DISK_CACHE_SKIP_CLEANUP=1
 __GL_THREADED_OPTIMIZATION=1
 QT_QPA_PLATFORMTHEME=qt5ct
@@ -51,8 +49,12 @@ MimeType=audio/mpeg' | sudo tee -a /usr/share/thumbnailers/audiocovers.thumbnail
 
 echo -e 'setxkbmap -model abnt2 -layout br
 feh --no-fehbg --bg-fill ~/.wallpaper/wallpaper.jpg
-nohup easyeffects --gapplication-service &
-/opt/urserver/urserver --daemon &' | sudo tee -a ~/.xprofile
+pactl load-module module-echo-cancel
+/opt/urserver/urserver --daemon &
+keepassxc &
+rclone mount gdrive: ~/drive/ &
+echo 2048 > /sys/class/rtc/rtc0/max_user_freq
+echo 2048 > /proc/sys/dev/hpet/max-user-freq' | sudo tee -a ~/.xprofile
 
 echo -e '[Theme]
 Current=tokyo-night-sddm' | sudo tee -a /etc/sddm.conf.d/themes.conf
