@@ -74,7 +74,7 @@ sudo mv tokyo-night-grub/ /boot/grub/themes/
 mv fish/ $HOME/.config/
 mv omf/ $HOME/.config/
 mv pipewire/ $HOME/.config/
-mv neovim/ $HOME/.config/
+mv nvim/ $HOME/.config/
 mv .zshrc $HOME/
 
 sudo mkdir /usr/share/Kvantum/ && sudo mv KvArcTokyoNight/ /usr/share/Kvantum/
